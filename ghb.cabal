@@ -1,0 +1,25 @@
+Name: ghb
+Version: 0.1
+
+Synopsis: command line github tools, implemented in haskell
+Description:
+  command line github
+Author: Daniel Choi
+Maintainer: dhchoi@gmail.com
+Build-Type: Simple
+Category: Web
+License:             MIT
+License-file:        LICENSE
+Cabal-Version: >= 1.4
+Executable ghb
+  Hs-Source-Dirs: .
+  main-is: Main.hs
+
+  Build-Depends: 
+    base,
+    mtl,
+    text >= 0.11.2.0,
+    aeson >= 0.3.2.6,
+    bytestring >= 0.9.2.1,
+    hoauth == 0.3.5
+
