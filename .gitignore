@@ -1,3 +1,4 @@
 dist/
 *.cfg
 *.private
+token.txt
