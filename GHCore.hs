@@ -10,16 +10,39 @@ import Control.Monad (MonadPlus, mzero)
 import qualified Data.Text.Lazy.Encoding as TE
 
 data User = User {
-    login :: String
+    userId :: Int
+  , login :: String
+  , gravatarId :: String
+  , avatarUrl :: String
+  , url :: String
+  , reposUrl :: String
+  , gistsUrl :: String
   , followersUrl :: String
+  , followingUrl :: String
+  , subscriptionsUrl :: String
+  , organizationsUrl :: String
   , starredUrl :: String
+  , eventsUrl :: String
+  , receivedEventsUrl :: String
   } deriving (Show)
 
 instance FromJSON User where
   parseJSON (Object v) = 
-    User <$> v .: "login" <*> 
+    User <$> 
+         v .: "id" <*> 
+         v .: "login" <*> 
+         v .: "gravatar_id" <*> 
+         v .: "avatar_url" <*> 
+         v .: "url" <*> 
+         v .: "repos_url" <*> 
+         v .: "gists_url" <*> 
          v .: "followers_url" <*>
-         v .: "starred_url"
+         v .: "following_url" <*> 
+         v .: "subscriptions_url" <*> 
+         v .: "organizations_url" <*> 
+         v .: "starred_url" <*>
+         v .: "events_url" <*> 
+         v .: "received_events_url" 
     
 
 

@@ -1,15 +1,16 @@
 module Main where
+import qualified Data.ByteString.Lazy as B
+import qualified Data.ByteString.Lazy.Char8 as B8
+import Text.JSON.Pretty
 
 import Network.Curl
 
 main = do
-    putStrLn "test"
     token <- readFile "token.txt"
-    putStrLn $ "token: " ++ token
     let headers = [CurlHttpHeaders ["Authorization: token "++token]]
     (code, rBody) <- curlGetString "https://api.github.com/repos/MackeyRMS/mackey/issues/208/comments" headers
-    putStrLn (show code)
     putStrLn rBody
+    -- putStrLn $ show $ pp_string rBody
 
 
 
