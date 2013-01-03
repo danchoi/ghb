@@ -8,6 +8,7 @@ import Data.Text (Text)
 import Control.Applicative
 import Control.Monad (MonadPlus, mzero)
 import qualified Data.Text.Lazy.Encoding as TE
+import Data.Time.Clock
 
 data User = User {
     userId :: Int
@@ -27,23 +28,74 @@ data User = User {
   } deriving (Show)
 
 instance FromJSON User where
-  parseJSON (Object v) = 
-    User <$> 
-         v .: "id" <*> 
-         v .: "login" <*> 
-         v .: "gravatar_id" <*> 
-         v .: "avatar_url" <*> 
-         v .: "url" <*> 
-         v .: "repos_url" <*> 
-         v .: "gists_url" <*> 
-         v .: "followers_url" <*>
-         v .: "following_url" <*> 
-         v .: "subscriptions_url" <*> 
-         v .: "organizations_url" <*> 
-         v .: "starred_url" <*>
-         v .: "events_url" <*> 
-         v .: "received_events_url" 
-    
+    parseJSON (Object v) = 
+        User <$> 
+             v .: "id" <*> 
+             v .: "login" <*> 
+             v .: "gravatar_id" <*> 
+             v .: "avatar_url" <*> 
+             v .: "url" <*> 
+             v .: "repos_url" <*> 
+             v .: "gists_url" <*> 
+             v .: "followers_url" <*>
+             v .: "following_url" <*> 
+             v .: "subscriptions_url" <*> 
+             v .: "organizations_url" <*> 
+             v .: "starred_url" <*>
+             v .: "events_url" <*> 
+             v .: "received_events_url" 
+
+data IssueState = Open | Closed deriving (Show)
+
+data PullRequest = PullRequest {
+    pullRequestPatchUrl :: Maybe String
+  , pullRequestDiffUrl :: Maybe String
+  , pullRequestHtmlUrl :: Maybe String
+  } deriving (Show)
+
+instance FromJSON PullRequest where
+    parseJSON (Object v) =
+        PullRequest <$>
+            v .: "patch_url" <*>
+            v .: "diff_url" <*>
+            v .: "html_url" 
+
+
+
+data Issue = Issue {
+    issueId :: Int
+  , issueNumComments :: Int
+  , issueState :: IssueState
+  , issueUrl :: String
+  , issueCommentsUrl :: String
+  , issueUser :: User
+  , issueTitle :: String
+  , issueBody :: String
+  , issueMilestone :: Maybe Int
+  , issueCreated :: String
+  , issueUpdated :: String
+  , issuePullRequest :: PullRequest
+  } deriving (Show)
+
+instance FromJSON IssueState where
+    parseJSON (String "open") = pure Open
+    parseJSON (String "closed") = pure Closed
+
+instance FromJSON Issue where
+    parseJSON (Object v) =
+        Issue <$>
+            v .: "id" <*>
+            v .: "comments" <*>
+            v .: "state" <*>
+            v .: "url" <*>
+            v .: "comments_url" <*>
+            v .: "user" <*>
+            v .: "title" <*>
+            v .: "body" <*>
+            v .: "milestone" <*>
+            v .: "created_at" <*>
+            v .: "updated_at" <*>
+            v .: "pull_request"
 
 
 
