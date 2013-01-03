@@ -3,6 +3,7 @@ import Data.Aeson
 import GHCore
 import qualified Data.ByteString.Lazy.Char8 as B
 import Data.Maybe (fromJust)
+import qualified Data.Text as T
 import qualified Data.Map as M
 
 main = do
@@ -12,8 +13,7 @@ main = do
     mapM_ eachField (fromJust r)
     mapM_ pluckUrl (fromJust r)
   where eachField = putStrLn . show
-        pluckUrl = putStrLn . show . (M.lookup "title")
-
-
+        pluckUrl m = putStrLn (extractString (fromJust $ M.lookup "title" m))
+        extractString (String x) = T.unpack x
 
 
