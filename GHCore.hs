@@ -9,6 +9,8 @@ import Control.Applicative
 import Control.Monad (MonadPlus, mzero)
 import qualified Data.Text.Lazy.Encoding as TE
 import Data.Time.Clock
+import qualified Data.Vector as V
+
 
 data User = User {
     userId :: Int
@@ -77,11 +79,25 @@ data Issue = Issue {
   , issuePullRequest :: PullRequest
   , issueUser :: User
   , issueAssignee :: Maybe User
+  , issueLabels :: [Label]
   } deriving (Show)
 
 instance FromJSON IssueState where
     parseJSON (String "open") = pure Open
     parseJSON (String "closed") = pure Closed
+
+data Label = Label {
+    labelColor :: String
+  , labelName :: String
+  , labelUrl :: String
+  } deriving (Show)
+
+instance FromJSON Label where
+    parseJSON (Object v) = 
+        Label <$>
+            v .: "color" <*>
+            v .: "name" <*>
+            v .: "url" 
 
 instance FromJSON Issue where
     parseJSON (Object v) =
@@ -99,7 +115,9 @@ instance FromJSON Issue where
             v .: "updated_at" <*>
             v .: "pull_request" <*>
             v .: "user" <*>
-            v .: "assignee" 
+            v .: "assignee" <*>
+            v .: "labels"
+
 
 
 data Comment = Comment {
