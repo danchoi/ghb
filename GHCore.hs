@@ -64,6 +64,7 @@ instance FromJSON PullRequest where
 
 data Issue = Issue {
     issueId :: Int
+  , issueNumber :: Int
   , issueNumComments :: Int
   , issueState :: IssueState
   , issueUrl :: String
@@ -85,6 +86,7 @@ instance FromJSON Issue where
     parseJSON (Object v) =
         Issue <$>
             v .: "id" <*>
+            v .: "number" <*>
             v .: "comments" <*>
             v .: "state" <*>
             v .: "url" <*>
