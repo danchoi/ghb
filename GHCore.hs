@@ -69,13 +69,14 @@ data Issue = Issue {
   , issueState :: IssueState
   , issueUrl :: String
   , issueCommentsUrl :: String
-  , issueUser :: User
   , issueTitle :: String
   , issueBody :: String
   , issueMilestone :: Maybe Int
   , issueCreated :: String
   , issueUpdated :: String
   , issuePullRequest :: PullRequest
+  , issueUser :: User
+  , issueAssignee :: Maybe User
   } deriving (Show)
 
 instance FromJSON IssueState where
@@ -91,14 +92,19 @@ instance FromJSON Issue where
             v .: "state" <*>
             v .: "url" <*>
             v .: "comments_url" <*>
-            v .: "user" <*>
             v .: "title" <*>
             v .: "body" <*>
             v .: "milestone" <*>
             v .: "created_at" <*>
             v .: "updated_at" <*>
-            v .: "pull_request"
+            v .: "pull_request" <*>
+            v .: "user" <*>
+            v .: "assignee" 
 
+
+data Comment = Comment {
+    commentId :: Int
+  }
 
 
 {-
