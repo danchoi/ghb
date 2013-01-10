@@ -1,3 +1,4 @@
+{-# LANGUAGE ScopedTypeVariables #-}
 module Main where
 import Data.Aeson
 import GHCore
@@ -11,7 +12,11 @@ getResp :: String -> IO String
 getResp url = do
     token <- readFile "token.txt"
     let headers = [CurlHttpHeaders ["Authorization: token "++token]]
-    (CurlOK, rBody) <- curlGetString url headers
+    r :: (CurlResponse_ [(String, String)] String) <- curlGetResponse_ url headers
+    let rBody = respBody r
+    -- see headers
+    let respHs = respHeaders r
+    mapM_ (putStrLn .show) respHs
     return rBody
 
 
