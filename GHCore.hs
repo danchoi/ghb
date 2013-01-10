@@ -118,12 +118,26 @@ instance FromJSON Issue where
             v .: "assignee" <*>
             v .: "labels"
 
-
-
 data Comment = Comment {
     commentId :: Int
-  }
+  , commentUrl :: String
+  , commentIssueUrl :: String
+  , commentBody :: String
+  , commentCreated :: String -- change to date
+  , commentUpdated :: String
+  , commentUser :: User
+  } deriving (Show)
 
+instance FromJSON Comment where 
+    parseJSON (Object v) = 
+        Comment <$>
+            v .: "id" <*>
+            v .: "url" <*>
+            v .: "issue_url" <*>
+            v .: "body" <*>
+            v .: "created_at" <*>
+            v .: "updated_at" <*>
+            v .: "user" 
 
 {-
 
