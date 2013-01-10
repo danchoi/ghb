@@ -14,19 +14,19 @@ import qualified Data.Vector as V
 
 data User = User {
     userId :: Int
-  , login :: String
-  , gravatarId :: String
-  , avatarUrl :: String
-  , url :: String
-  , reposUrl :: String
-  , gistsUrl :: String
-  , followersUrl :: String
-  , followingUrl :: String
-  , subscriptionsUrl :: String
-  , organizationsUrl :: String
-  , starredUrl :: String
-  , eventsUrl :: String
-  , receivedEventsUrl :: String
+  , userLogin :: String
+  , userGravatarId :: String
+  , userAvatarUrl :: String
+  , userUrl :: String
+  , userReposUrl :: String
+  , userGistsUrl :: String
+  , userFollowersUrl :: String
+  , userFollowingUrl :: String
+  , userSubscriptionsUrl :: String
+  , userOrganizationsUrl :: String
+  , userStarredUrl :: String
+  , userEventsUrl :: String
+  , userReceivedEventsUrl :: String
   } deriving (Show)
 
 data IssueState = Open | Closed deriving (Show)
