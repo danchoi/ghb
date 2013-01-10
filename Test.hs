@@ -14,4 +14,5 @@ main = do
     putStrLn rBody
     let json = B8.pack rBody
     let r = decode json :: Maybe [Comment]
-    putStrLn . show $ fromJust r
+    let xs = fromJust r
+    mapM_ (putStrLn.commentBody) xs

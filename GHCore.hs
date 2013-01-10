@@ -29,24 +29,6 @@ data User = User {
   , receivedEventsUrl :: String
   } deriving (Show)
 
-instance FromJSON User where
-    parseJSON (Object v) = 
-        User <$> 
-             v .: "id" <*> 
-             v .: "login" <*> 
-             v .: "gravatar_id" <*> 
-             v .: "avatar_url" <*> 
-             v .: "url" <*> 
-             v .: "repos_url" <*> 
-             v .: "gists_url" <*> 
-             v .: "followers_url" <*>
-             v .: "following_url" <*> 
-             v .: "subscriptions_url" <*> 
-             v .: "organizations_url" <*> 
-             v .: "starred_url" <*>
-             v .: "events_url" <*> 
-             v .: "received_events_url" 
-
 data IssueState = Open | Closed deriving (Show)
 
 data PullRequest = PullRequest {
@@ -54,15 +36,6 @@ data PullRequest = PullRequest {
   , pullRequestDiffUrl :: Maybe String
   , pullRequestHtmlUrl :: Maybe String
   } deriving (Show)
-
-instance FromJSON PullRequest where
-    parseJSON (Object v) =
-        PullRequest <$>
-            v .: "patch_url" <*>
-            v .: "diff_url" <*>
-            v .: "html_url" 
-
-
 
 data Issue = Issue {
     issueId :: Int
@@ -82,22 +55,53 @@ data Issue = Issue {
   , issueLabels :: [Label]
   } deriving (Show)
 
-instance FromJSON IssueState where
-    parseJSON (String "open") = pure Open
-    parseJSON (String "closed") = pure Closed
-
 data Label = Label {
     labelColor :: String
   , labelName :: String
   , labelUrl :: String
   } deriving (Show)
 
-instance FromJSON Label where
+data Comment = Comment {
+    commentId :: Int
+  , commentUrl :: String
+  , commentIssueUrl :: String
+  , commentBody :: String
+  , commentCreated :: String -- change to date
+  , commentUpdated :: String
+  , commentUser :: User
+  } deriving (Show)
+
+
+-- FromJSON instances
+
+instance FromJSON User where
     parseJSON (Object v) = 
-        Label <$>
-            v .: "color" <*>
-            v .: "name" <*>
-            v .: "url" 
+        User <$> 
+             v .: "id" <*> 
+             v .: "login" <*> 
+             v .: "gravatar_id" <*> 
+             v .: "avatar_url" <*> 
+             v .: "url" <*> 
+             v .: "repos_url" <*> 
+             v .: "gists_url" <*> 
+             v .: "followers_url" <*>
+             v .: "following_url" <*> 
+             v .: "subscriptions_url" <*> 
+             v .: "organizations_url" <*> 
+             v .: "starred_url" <*>
+             v .: "events_url" <*> 
+             v .: "received_events_url" 
+
+instance FromJSON PullRequest where
+    parseJSON (Object v) =
+        PullRequest <$>
+            v .: "patch_url" <*>
+            v .: "diff_url" <*>
+            v .: "html_url" 
+
+instance FromJSON IssueState where
+    parseJSON (String "open") = pure Open
+    parseJSON (String "closed") = pure Closed
 
 instance FromJSON Issue where
     parseJSON (Object v) =
@@ -118,15 +122,12 @@ instance FromJSON Issue where
             v .: "assignee" <*>
             v .: "labels"
 
-data Comment = Comment {
-    commentId :: Int
-  , commentUrl :: String
-  , commentIssueUrl :: String
-  , commentBody :: String
-  , commentCreated :: String -- change to date
-  , commentUpdated :: String
-  , commentUser :: User
-  } deriving (Show)
+instance FromJSON Label where
+    parseJSON (Object v) = 
+        Label <$>
+            v .: "color" <*>
+            v .: "name" <*>
+            v .: "url" 
 
 instance FromJSON Comment where 
     parseJSON (Object v) = 
@@ -138,6 +139,8 @@ instance FromJSON Comment where
             v .: "created_at" <*>
             v .: "updated_at" <*>
             v .: "user" 
+
+
 
 {-
 
