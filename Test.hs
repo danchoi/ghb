@@ -19,7 +19,6 @@ getResp url = do
     mapM_ (putStrLn .show) respHs
     return rBody
 
-
 comments = do
     rBody <- getResp "https://api.github.com/repos/MackeyRMS/mackey/issues/208/comments"
     putStrLn rBody
