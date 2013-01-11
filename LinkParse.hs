@@ -10,7 +10,7 @@ parseLink input = parse links "(unknown)" input
 data Link = Link {
       linkHref :: String
     , linkRel :: String
-    } deriving (Show)
+    } deriving (Read, Show)
 
 link :: CharParser st Link
 link = do
