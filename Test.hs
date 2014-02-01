@@ -21,15 +21,15 @@ getResp url = do
 
 comments = do
     rBody <- getResp "https://api.github.com/repos/MackeyRMS/mackey/issues/208/comments"
-    putStrLn rBody
+    -- putStrLn rBody
     let json = B8.pack rBody
     let r = decode json :: Maybe [Comment]
     let xs = fromJust r
-    mapM_ (putStrLn.commentBody) xs
+    mapM_ (putStrLn.show) xs
 
 followers = do
     rsp <- getResp "https://api.github.com/users/danchoi/followers"
     let users = fromJust ( (decode $ B8.pack rsp) :: Maybe [User] )
     mapM_ (putStrLn . show . userLogin) users
 
-main = followers
+main = comments

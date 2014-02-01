@@ -2,7 +2,7 @@ module Main where
 import Data.Aeson
 import GHCore
 import qualified Data.ByteString.Lazy.Char8 as B
-import Data.Maybe (fromJust)
+import Data.Maybe (fromJust, fromMaybe)
 
 testUser = do
   raw <- readFile "json/user.json"
@@ -11,9 +11,9 @@ testUser = do
   putStrLn . show $ fromJust r
 
 testIssue = do 
-    raw <- fmap B.pack $ readFile "json/issues.json"
+    raw <- fmap B.pack $ readFile "vmailissues.json"
     let r = decode raw :: Maybe [Issue]
-    putStrLn . show $ r
+    mapM_ print $ fromMaybe [] r
 
 
 main = testIssue

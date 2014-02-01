@@ -12,22 +12,7 @@ import Data.Time.Clock
 import qualified Data.Vector as V
 
 
-data User = User {
-    userId :: Int
-  , userLogin :: String
-  , userGravatarId :: String
-  , userAvatarUrl :: String
-  , userUrl :: String
-  , userReposUrl :: String
-  , userGistsUrl :: String
-  , userFollowersUrl :: String
-  , userFollowingUrl :: String
-  , userSubscriptionsUrl :: String
-  , userOrganizationsUrl :: String
-  , userStarredUrl :: String
-  , userEventsUrl :: String
-  , userReceivedEventsUrl :: String
-  } deriving (Show)
+data User = User { userLogin :: String } deriving (Show)
 
 data IssueState = Open | Closed deriving (Show)
 
@@ -76,21 +61,7 @@ data Comment = Comment {
 
 instance FromJSON User where
     parseJSON (Object v) = 
-        User <$> 
-             v .: "id" <*> 
-             v .: "login" <*> 
-             v .: "gravatar_id" <*> 
-             v .: "avatar_url" <*> 
-             v .: "url" <*> 
-             v .: "repos_url" <*> 
-             v .: "gists_url" <*> 
-             v .: "followers_url" <*>
-             v .: "following_url" <*> 
-             v .: "subscriptions_url" <*> 
-             v .: "organizations_url" <*> 
-             v .: "starred_url" <*>
-             v .: "events_url" <*> 
-             v .: "received_events_url" 
+        User <$> v .: "login" 
 
 instance FromJSON PullRequest where
     parseJSON (Object v) =
