@@ -1,6 +1,8 @@
 module Main where
 import GHCore
 import CoreTest
+import OAuth
 
-main = testIssue
+-- main = testIssue
+main = testGithub
 
