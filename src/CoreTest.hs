@@ -1,4 +1,4 @@
-module Main where
+module CoreTest where
 import Data.Aeson
 import GHCore
 import qualified Data.ByteString.Lazy.Char8 as B
@@ -16,4 +16,4 @@ testIssue = do
     mapM_ print $ fromMaybe [] r
 
 
-main = testIssue
+

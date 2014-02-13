@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings, StandaloneDeriving, ScopedTypeVariables #-}
-module Main where
+module OldMain where
 
 import Control.Monad.IO.Class (liftIO)
 import Control.Monad (liftM)
