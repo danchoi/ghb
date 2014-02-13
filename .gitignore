@@ -2,3 +2,4 @@ dist/
 *.cfg
 *.private
 token.txt
+GithubKey.hs
