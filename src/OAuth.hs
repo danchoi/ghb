@@ -26,6 +26,12 @@ testGithub = do
       Left l    -> print "no access token found yet"
 
 
+-- next test using access token 
+
+-- testCachedAccess ::  IO (OAuth2Result GithubUser)
+testCachedAccess = authGetBS githubAccessToken "https://api.github.com/user" >>= print
+
+
 -- | Test API: user
 --
 userInfo :: AccessToken -> IO (OAuth2Result GithubUser)

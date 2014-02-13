@@ -4,5 +4,6 @@ import CoreTest
 import OAuth
 
 -- main = testIssue
-main = testGithub
+-- main = testGithub
+main = testCachedAccess >>= print
 
