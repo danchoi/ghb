@@ -17,6 +17,8 @@ import Control.Applicative
 import Control.Monad
 import qualified Data.HashMap.Strict as M
 
+{- inserts "newVal":"hello" to each object -}
+
 main = do
     r <- BL.getContents
     let xs :: Value = fromJust . decode $ r
