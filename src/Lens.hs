@@ -33,6 +33,8 @@ proc1 v = v ^.. _Array . traverse . _Object . body
 
 test = getValue "json/issues.json" >>= return . proc1 
 
+item x = (x ^. ix "url" ._String , x ^. ix "body" ._String)
+
 main = do 
   x <- BL.getContents 
   let v :: Value = fromJust $ decode x 
@@ -40,11 +42,18 @@ main = do
   -- print $ v ^? nth 0 . key "state"
   print $ v ^? _Array . traverse . _Object . ix "comments" 
   print $ v ^.. _Array . traverse . _Object . ix "user" . ix "login" . _String
-  print $ v ^.. _Array . traverse . _Object . body
+  -- print $ v ^.. _Array . traverse . _Object . body
   -- print $ v ^.. _Array . traverse . _Object . loginBody -- does not work
+  -- does not work:
   -- print $ v ^.. _Array . traverse . _Object . ((ix "user" . ix "login" . _String) `alongside` (ix "url" . _String))
-  traverseOf each print $ v ^.. _Array . traverse . _Object 
-  traverseOf each (\x ->  print (x ^? ix "url" . _String , x ^? login ) )  $ v ^.. _Array . traverse . _Object 
+  -- traverseOf each print $ v ^.. _Array . traverse . _Object 
+  let xs = v ^.. _Array . traverse . _Object 
+  traverseOf each (\x -> print (x ^. ix "url" ._String, 1)) xs
+  print $ traverseOf each (\x -> (x ^. ix "url" ._String , x ^? ix "body" ._String))  xs
+
+  let ys =  v ^.. _Array . traverse . _Object . ix "url" ._String
+  print ys
+
 
   putStrLn " test "
 
