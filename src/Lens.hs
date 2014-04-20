@@ -14,11 +14,22 @@ import Data.Aeson.Lens
 import Data.Maybe
 
 
+-- for testing
+
+getValue :: FilePath -> IO Value
+getValue fp =  BL.readFile fp >>= return . fromJust . decode
+
+
+
+
+
 main = do 
   x <- BL.getContents 
   let v :: Value = fromJust $ decode x 
   -- print v
-  print $ v ^? nth 0 . key "state"
+  -- print $ v ^? nth 0 . key "state"
+  print $ v ^? _Array . traverse . _Object . ix "comments" 
+  print $ v ^.. _Array . traverse . _Object . ix "user" . ix "login"
   putStrLn "OK"
 
 
