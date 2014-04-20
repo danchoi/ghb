@@ -13,7 +13,6 @@ License-file:        LICENSE
 Cabal-version: >= 1.10
 
 Executable ghb
-  Hs-Source-Dirs: .
   main-is: Main.hs
   hs-source-dirs: src
   default-language: Haskell2010
@@ -33,4 +32,17 @@ Executable ghb
     hoauth2,  
     -- hoauth doesn't install properly
     cmdargs
+
+
+Executable glens
+  Hs-Source-Dirs: src
+  main-is: Lens.hs
+  default-language: Haskell2010
+
+  Build-Depends: 
+    base,
+    text ,
+    aeson ,
+    lens >= 4.0,
+    bytestring
 
