@@ -12,6 +12,8 @@ import qualified Data.ByteString.Char8 as B
 import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.Aeson.Lens
 import Data.Maybe
+import Data.Data.Lens
+import Control.Applicative
 
 
 -- for testing
@@ -21,6 +23,10 @@ getValue fp =  BL.readFile fp >>= return . fromJust . decode
 
 
 
+login = ix "user" . ix "login"
+body = ix "body"
+
+loginBody  = login `alongside` body
 
 
 main = do 
@@ -30,6 +36,10 @@ main = do
   -- print $ v ^? nth 0 . key "state"
   print $ v ^? _Array . traverse . _Object . ix "comments" 
   print $ v ^.. _Array . traverse . _Object . ix "user" . ix "login"
+  print $ v ^.. _Array . traverse . _Object . body
+  -- print $ v ^.. _Array . traverse . _Object . loginBody -- does not work
+
+
   putStrLn "OK"
 
 
