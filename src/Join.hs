@@ -24,7 +24,7 @@ main = do
     let xs :: Value = fromJust . decode $ r
     -- copy user value to another key
     let xs' = map (\x -> M.insert "newVal" (fromJust . M.lookup "user" $ x) x) (xs ^.. _Array . traverse . _Object)
-    -- how to install Null:
+    -- how to insert Null:
     -- let xs' = map (\x -> M.insert "newVal" Null x) (xs ^.. _Array . traverse . _Object)
     BL.putStrLn $ encode xs'
 
