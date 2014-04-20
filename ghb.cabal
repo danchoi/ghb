@@ -46,3 +46,15 @@ Executable glens
     lens >= 4.0,
     bytestring
 
+Executable gjoin
+  Hs-Source-Dirs: src
+  main-is: Join.hs
+  default-language: Haskell2010
+  Build-Depends: 
+    base,
+    text ,
+    aeson ,
+    unordered-containers,
+    lens >= 4.0,
+    bytestring
+
