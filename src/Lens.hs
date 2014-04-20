@@ -54,6 +54,9 @@ main = do
   let ys =  v ^.. _Array . traverse . _Object . ix "url" ._String
   print ys
 
+  -- THIS WORKS
+  putStrLn "map item xs"
+  print $ map item xs
 
   putStrLn " test "
 
