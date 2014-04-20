@@ -22,6 +22,7 @@ import qualified Data.HashMap.Strict as M
 main = do
     r <- BL.getContents
     let xs :: Value = fromJust . decode $ r
-    let xs' = map (\x -> M.insert "newVal" "hello" x) (xs ^.. _Array . traverse . _Object)
+    -- copy user value to another key
+    let xs' = map (\x -> M.insert "newVal" (fromJust . M.lookup "user" $ x) x) (xs ^.. _Array . traverse . _Object)
     BL.putStrLn $ encode xs'
 
