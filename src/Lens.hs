@@ -28,6 +28,10 @@ body = ix "body"
 
 loginBody  = login `alongside` body
 
+proc1 v = v ^.. _Array . traverse . _Object . body
+-- proc2 v = v ^.. _Array . traverse . _Object . body
+
+test = getValue "json/issues.json" >>= return . proc1 
 
 main = do 
   x <- BL.getContents 
@@ -35,11 +39,14 @@ main = do
   -- print v
   -- print $ v ^? nth 0 . key "state"
   print $ v ^? _Array . traverse . _Object . ix "comments" 
-  print $ v ^.. _Array . traverse . _Object . ix "user" . ix "login"
+  print $ v ^.. _Array . traverse . _Object . ix "user" . ix "login" . _String
   print $ v ^.. _Array . traverse . _Object . body
   -- print $ v ^.. _Array . traverse . _Object . loginBody -- does not work
+  -- print $ v ^.. _Array . traverse . _Object . ((ix "user" . ix "login" . _String) `alongside` (ix "url" . _String))
+  traverseOf each print $ v ^.. _Array . traverse . _Object 
+  traverseOf each (\x ->  print (x ^? ix "url" . _String , x ^? login ) )  $ v ^.. _Array . traverse . _Object 
 
+  putStrLn " test "
 
-  putStrLn "OK"
 
 
