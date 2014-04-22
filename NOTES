@@ -46,6 +46,7 @@ $ cat json/issues.json | jq '.[] | {title, user: .user.login, url, html_url, num
   "user": "mintao",
   "url": "https://api.github.com/repos/danchoi/vmail/issues/169",
   "number": 169,
+  "html_url": "https://github.com/danchoi/vmail/pull/169",
   "labels": [],
   "state": "open",
   "assignee": null,
