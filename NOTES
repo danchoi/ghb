@@ -38,7 +38,7 @@ Pick out useful fields from issues.json
 
 ./curl_ https://api.github.com/repos/danchoi/vmail/issues > json/issues.json
 
-$ cat json/issues.json | jq '.[] | {title, user: .user.login, url, html_url, number, labels, state, assignee,comments,created_at, milestone}' | less
+$ cat json/issues.json | jq '.[] | {title, user: .user.login, url, html_url, number, labels, state, assignee,comments,created_at, milestone, body}' | less
 {
   "milestone": null,
   "created_at": "2014-04-18T22:32:46Z",
@@ -50,7 +50,8 @@ $ cat json/issues.json | jq '.[] | {title, user: .user.login, url, html_url, num
   "labels": [],
   "state": "open",
   "assignee": null,
-  "comments": 0
+  "comments": 0,
+  "body": "One can now set the \"Sent\" mailbox name which enables multi lingual support for Gmail as well as for own server. Contacts are now extracted out of the configured sent folder.\u000d\u000aOther configurable folder names will follow :)"
 }
 ..
 
