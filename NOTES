@@ -38,7 +38,7 @@ Pick out useful fields from issues.json
 
 ./curl_ https://api.github.com/repos/danchoi/vmail/issues > json/issues.json
 
-$ cat json/issues.json | jq '.[] | {title, user: .user.login, url, html_url, number, labels, state, assignee,comments,created_at, milestone, body}' | less
+cat json/issues.json | jq '[.[] | {title, user: .user.login, url, html_url, number, labels: .labels[].name, state, assignee,comments,created_at, milestone, body}]' | less
 {
   "milestone": null,
   "created_at": "2014-04-18T22:32:46Z",
@@ -56,4 +56,5 @@ $ cat json/issues.json | jq '.[] | {title, user: .user.login, url, html_url, num
 ..
 
 cat json/comments.json | jq '.[] | {user: .user.login, html_url, url, created_at, body}' | less
+cat privjson/issues.json | jq '[.[] | {title, user: .user.login, url, html_url, number, labels: .labels[].name, state, assigne: .assignee.login,comments,created_at, milestone, body}]' | less
 

@@ -3,3 +3,4 @@ dist/
 *.private
 token.txt
 GithubKey.hs
+privjson
