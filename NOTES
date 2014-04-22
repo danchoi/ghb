@@ -56,5 +56,10 @@ cat json/issues.json | jq '[.[] | {title, user: .user.login, url, html_url, numb
 ..
 
 cat json/comments.json | jq '.[] | {user: .user.login, html_url, url, created_at, body}' | less
-cat privjson/issues.json | jq '[.[] | {title, user: .user.login, url, html_url, number, labels: [.labels[].name], state, assigne: .assignee.login,comments,created_at, milestone, body}]' | less
+cat privjson/issues.json | jq '[.[] | {title, user: .user.login, url, html_url, number, labels: [.labels[].name], state, assigne: .assignee.login,comments, comments_url, created_at, milestone, body}]' | less
+cat privjson/comments.json | jq '[.[] | {user: .user.login, html_url, url, created_at, body}]' | tee privjson/jqcomments.json
+
+
+later, labels may be key:
+"labels_url": "https://api.github.com/repos/danchoi/activerecord-jdbc-adapter/labels{/name}",
 
