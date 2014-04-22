@@ -1,0 +1,360 @@
+{
+  "milestone": null,
+  "created_at": "2014-04-18T22:32:46Z",
+  "title": "Configurable \"sent\" folder name and dynamic contacts export",
+  "user": "mintao",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/169",
+  "number": 169,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2014-03-03T09:14:19Z",
+  "title": "Some HTML messages fail to be parsed",
+  "user": "asfaltboy",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/168",
+  "number": 168,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 1
+}
+{
+  "milestone": null,
+  "created_at": "2014-02-19T17:41:53Z",
+  "title": "How do you search for unread messages",
+  "user": "jrhoads",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/167",
+  "number": 167,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2014-02-05T11:51:03Z",
+  "title": "Other language",
+  "user": "cympfh",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/165",
+  "number": 165,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 3
+}
+{
+  "milestone": null,
+  "created_at": "2014-01-28T12:08:48Z",
+  "title": "Feature: Optionally composing html emails",
+  "user": "dhruvasagar",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/164",
+  "number": 164,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 3
+}
+{
+  "milestone": null,
+  "created_at": "2014-01-24T22:58:42Z",
+  "title": "html parsing looks different with original html parse command.",
+  "user": "mait",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/163",
+  "number": 163,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 2
+}
+{
+  "milestone": null,
+  "created_at": "2013-12-23T09:22:23Z",
+  "title": "Windows-1258 code converter not found",
+  "user": "emmanuelgeoffray",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/162",
+  "number": 162,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2013-12-04T17:41:16Z",
+  "title": "Unopenable unread messages",
+  "user": "pspsy",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/161",
+  "number": 161,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2013-11-24T17:03:56Z",
+  "title": "vundle support?",
+  "user": "skhaz",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/159",
+  "number": 159,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2013-11-22T09:44:12Z",
+  "title": "script exec from vmailrc",
+  "user": "samimb",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/158",
+  "number": 158,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2013-11-20T16:21:07Z",
+  "title": "Vmail is great, make it free",
+  "user": "skrat",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/157",
+  "number": 157,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 2
+}
+{
+  "milestone": null,
+  "created_at": "2013-10-22T09:46:58Z",
+  "title": "IMAP IDLE + vim +clientserver",
+  "user": "skrat",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/156",
+  "number": 156,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 1
+}
+{
+  "milestone": null,
+  "created_at": "2013-09-30T00:49:08Z",
+  "title": "Deleted messages not really gone",
+  "user": "lungpu",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/155",
+  "number": 155,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 3
+}
+{
+  "milestone": null,
+  "created_at": "2013-09-01T19:16:11Z",
+  "title": "Creating contact list",
+  "user": "xangelux",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/154",
+  "number": 154,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2013-08-27T22:30:09Z",
+  "title": "Documentation: clarification of attach:",
+  "user": "pspsy",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/153",
+  "number": 153,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 1
+}
+{
+  "milestone": null,
+  "created_at": "2013-07-18T15:52:02Z",
+  "title": "Show the email address vmail is currently using in the statusline",
+  "user": "AzizLight",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/149",
+  "number": 149,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 1
+}
+{
+  "milestone": null,
+  "created_at": "2013-07-02T15:54:39Z",
+  "title": "Better paragraph formatting",
+  "user": "thallada",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/147",
+  "number": 147,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2013-05-25T21:24:32Z",
+  "title": "More descriptive notifications for incoming messages.",
+  "user": "colinsullivan",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/144",
+  "number": 144,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2013-04-30T10:18:18Z",
+  "title": "Command line operations",
+  "user": "joshaw",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/143",
+  "number": 143,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2013-04-29T16:31:17Z",
+  "title": "Move/Save search on type",
+  "user": "joshaw",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/142",
+  "number": 142,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2013-03-25T03:00:22Z",
+  "title": "GPG support",
+  "user": "torgiren",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/140",
+  "number": 140,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 1
+}
+{
+  "milestone": null,
+  "created_at": "2013-02-13T16:38:09Z",
+  "title": "Couldn't run vmail",
+  "user": "hoandang",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/137",
+  "number": 137,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 2
+}
+{
+  "milestone": null,
+  "created_at": "2013-02-12T01:33:34Z",
+  "title": "Error Logging In When Meeting Chinese Characters",
+  "user": "hezihertz",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/136",
+  "number": 136,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2013-02-05T00:47:29Z",
+  "title": "Marking messages as read produce the right message",
+  "user": "hkdobrev",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/135",
+  "number": 135,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2013-02-05T00:35:05Z",
+  "title": "VMail always says \"marked as unread\"",
+  "user": "hkdobrev",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/134",
+  "number": 134,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 1
+}
+{
+  "milestone": null,
+  "created_at": "2013-01-22T19:40:58Z",
+  "title": "vmail color customization",
+  "user": "oriente",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/132",
+  "number": 132,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 13
+}
+{
+  "milestone": null,
+  "created_at": "2013-01-19T03:44:17Z",
+  "title": "Support contacts sync via CardDav",
+  "user": "dmmalam",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/131",
+  "number": 131,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2013-01-10T17:35:44Z",
+  "title": "Installed ok, vmail -h works, but when starting vmail, here is the output",
+  "user": "tobiah",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/130",
+  "number": 130,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 3
+}
+{
+  "milestone": null,
+  "created_at": "2012-12-26T15:03:32Z",
+  "title": "Broken pipe errors after exiting sleep mode",
+  "user": "rdcapasso",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/127",
+  "number": 127,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+{
+  "milestone": null,
+  "created_at": "2012-12-24T15:03:02Z",
+  "title": "vmail startup issue",
+  "user": "perlbox",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/126",
+  "number": 126,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 1
+}
