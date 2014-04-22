@@ -38,6 +38,20 @@ Pick out useful fields from issues.json
 
 ./curl_ https://api.github.com/repos/danchoi/vmail/issues > json/issues.json
 
-$ cat json/issues.json | jq '.[] | {title, user: .user.login, url,number, labels, state, assignee,comments,created_at, milestone}' | less
+$ cat json/issues.json | jq '.[] | {title, user: .user.login, url, html_url, number, labels, state, assignee,comments,created_at, milestone}' | less
+{
+  "milestone": null,
+  "created_at": "2014-04-18T22:32:46Z",
+  "title": "Configurable \"sent\" folder name and dynamic contacts export",
+  "user": "mintao",
+  "url": "https://api.github.com/repos/danchoi/vmail/issues/169",
+  "number": 169,
+  "labels": [],
+  "state": "open",
+  "assignee": null,
+  "comments": 0
+}
+..
 
+cat json/comments.json | jq '.[] | {user: .user.login, html_url, url, created_at, body}' | less
 
