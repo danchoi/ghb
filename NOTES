@@ -63,3 +63,9 @@ cat privjson/comments.json | jq '[.[] | {user: .user.login, html_url, url, creat
 later, labels may be key:
 "labels_url": "https://api.github.com/repos/danchoi/activerecord-jdbc-adapter/labels{/name}",
 
+Get labels for drop down
+Assignees too
+Sort order?
+
+issues=bug
+assignee=?
