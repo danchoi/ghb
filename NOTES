@@ -33,5 +33,11 @@ To use the token, pass it in a header named "Authorization"
 $ curl -H "Authorization: token oawjdoiawjd" https://api.github.com/repos/user/repo
 
 
+Pick out useful fields from issues.json
+
+
+./curl_ https://api.github.com/repos/danchoi/vmail/issues > json/issues.json
+
+$ cat json/issues.json | jq '.[] | {title, user: .user.login, url,number, labels, state, assignee,comments,created_at, milestone}' | less
 
 
