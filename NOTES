@@ -30,7 +30,8 @@ Enter host password for user 'danchoi':
 
 To use the token, pass it in a header named "Authorization"
 
-$ curl -H "Authorization: token oawjdoiawjd" https://api.github.com/repos/user/repo
+# remember to use the literal word 'token'
+$ curl -H "Authorization: token oawjdoiawjd" https://api.github.com/repos/USER/repo
 
 
 Pick out useful fields from issues.json
