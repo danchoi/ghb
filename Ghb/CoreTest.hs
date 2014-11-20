@@ -11,7 +11,7 @@ testIssue = do
     let r = eitherDecode raw :: Either String [Issue]
     case r of 
       Left err -> putStrLn err
-      Right xs -> mapM_ print xs
+      Right xs -> mapM_ printfIssue xs
 
 
 

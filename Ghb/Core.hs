@@ -1,19 +1,22 @@
-{-# LANGUAGE OverloadedStrings, DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings, DeriveGeneric, RecordWildCards #-}
 
 module Ghb.Core
 where 
 import Data.Aeson
 import Data.Text (Text)
+import Data.Maybe
 import Control.Applicative
 import Control.Monad (MonadPlus, mzero)
 import qualified Data.Text.Lazy.Encoding as TE
 import Data.Time.Clock
 import qualified Data.Vector as V
+import Text.Printf
 
 data IssueState = Open | Closed deriving (Show)
 
 data Issue = Issue {
     issueNumber :: Int
+  , issueRepo :: String
   , issueTitle :: String
   , issueNumComments :: Int
   , issueState :: IssueState
@@ -21,9 +24,9 @@ data Issue = Issue {
   , issueBody :: String
   , issueCreated :: String
   , issueUpdated :: String
-  , issueUsername :: Text
-  , issueAssignee :: Maybe Text
-  , issueLabels :: [Text]
+  , issueUsername :: String
+  , issueAssignee :: Maybe String
+  , issueLabels :: [String]
   } deriving (Show)
 
 data Comment = Comment {
@@ -44,6 +47,7 @@ instance FromJSON Issue where
     parseJSON (Object v) =
         Issue 
           <$> v .: "number" 
+          <*> (v .: "repository" >>= (.: "name"))
           <*> v .: "title" 
           <*> v .: "comments" 
           <*> v .: "state" 
@@ -55,6 +59,11 @@ instance FromJSON Issue where
           <*> ((v .: "assignee" >>= (.: "login"))  <|> pure Nothing )
           <*> (v .: "labels" >>= mapM (.: "name"))
   
+printfIssue :: Issue -> IO ()
+printfIssue (Issue {..}) = do 
+    printf "%5d %-20.20s %-50.50s %s %s\n" 
+      issueNumber issueRepo issueTitle issueUsername 
+      (fromMaybe "-" issueAssignee)
 
 instance FromJSON Comment where 
     parseJSON (Object v) = 
