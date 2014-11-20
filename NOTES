@@ -70,3 +70,6 @@ Sort order?
 
 issues=bug
 assignee=?
+
+
+745  ./curl_ "https://api.github.com/orgs/MackeyRMS/issues?filter=all&state=open"    > json/mackeyissues.json
