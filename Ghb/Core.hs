@@ -1,8 +1,7 @@
 {-# LANGUAGE OverloadedStrings, DeriveGeneric #-}
 
-module GHCore
+module Ghb.Core
 where 
-import GHC.Generics
 import Data.Aeson
 import Data.Text (Text)
 import Control.Applicative
