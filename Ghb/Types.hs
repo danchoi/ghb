@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings, DeriveGeneric, RecordWildCards #-}
 
-module Ghb.Core
+module Ghb.Types
 where 
 import Data.Aeson
 import Data.Text (Text)
@@ -16,7 +16,7 @@ data IssueState = Open | Closed deriving (Show)
 
 data Issue = Issue {
     issueNumber :: Int
-  , issueRepo :: String
+  , issueRepo :: Maybe String
   , issueTitle :: String
   , issueNumComments :: Int
   , issueState :: IssueState
@@ -31,8 +31,7 @@ data Issue = Issue {
 
 data Comment = Comment {
     commentId :: Int
-  , commentUrl :: String
-  , commentIssueUrl :: String
+  , commentHtmlUrl :: String
   , commentBody :: String
   , commentCreated :: String -- change to date
   , commentUpdated :: String
@@ -47,7 +46,7 @@ instance FromJSON Issue where
     parseJSON (Object v) =
         Issue 
           <$> v .: "number" 
-          <*> (v .: "repository" >>= (.: "name"))
+          <*> ((v .: "repository" >>= (.: "name")) <|> pure Nothing)
           <*> v .: "title" 
           <*> v .: "comments" 
           <*> v .: "state" 
@@ -62,19 +61,18 @@ instance FromJSON Issue where
 printfIssue :: Issue -> IO ()
 printfIssue (Issue {..}) = do 
     printf "%5d %-20.20s %-50.50s %s %s\n" 
-      issueNumber issueRepo issueTitle issueUsername 
+      issueNumber 
+      (fromMaybe "-" issueRepo) issueTitle issueUsername 
       (fromMaybe "-" issueAssignee)
 
 instance FromJSON Comment where 
-    parseJSON (Object v) = 
-        Comment <$>
-            v .: "id" <*>
-            v .: "url" <*>
-            v .: "issue_url" <*>
-            v .: "body" <*>
-            v .: "created_at" <*>
-            v .: "updated_at" <*>
-            v .: "user" 
+    parseJSON (Object v) = Comment 
+        <$> v .: "id" 
+        <*> v .: "html_url" 
+        <*> v .: "body" 
+        <*> v .: "created_at" 
+        <*> v .: "updated_at" 
+        <*> (v .: "user" >>= (.: "login"))
 
 
 

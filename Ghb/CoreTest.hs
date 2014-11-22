@@ -1,5 +1,5 @@
 module Ghb.CoreTest where
-import Ghb.Core
+import Ghb.Types
 import Data.Aeson
 import qualified Data.ByteString.Lazy.Char8 as B
 import Data.Maybe (fromJust, fromMaybe)
